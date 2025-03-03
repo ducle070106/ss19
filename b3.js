@@ -1,30 +1,21 @@
-let input=prompt("mời nhập vào \"VND-->USD: <giá trị số tự nhiên>\"(VND và USD có thể đảo vị trí");
-let check=true;
-if(input.includes("VND-->USD")){
-    let money= +input.split(":")[1].trim();
-    if(money<0||isNaN(money)){
-        check=false;
-    }else{
-        check=1
-    }
-}else if(input.includes("USD-->VND")){
-    let money= +input.split(":")[1].trim();
-    if(money<0||isNaN(money)){
-        check=false;
-    }else{
-        check=2
-    }
-}else{
-    check=false;
+let tyGia = 23000; 
+
+let loaiDoi = prompt("Nhap loai chuyen doi :");
+
+
+switch (loaiDoi) {
+    case "1":
+        let vnd = prompt("nhập tiền vnd:");
+        let usd = vnd / tyGia;
+        alert("VND-->USD: " + vnd + " -> " + usd + " USD");
+        break;
+
+    case "2":
+        let usdInput = prompt("nhập tiền usd:");
+        let vndOutput = usdInput * tyGia;
+        alert("USD-->VND: " + usdInput + " -> " + vndOutput + " VND");
+        break;
+
+    default:
+        alert("Lựa chọn không đúng");
 }
-if(check){
-    if(check===1){
-        money=(money/23000)+" USD"
-    }else{
-        money=(money*23000)+" VND"
-    }
-    alert(money);
-}else{
-    alert("không hợp lệ");
-}
-location.reload();
